@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #212121;
+    padding:10px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+}
+.card{
+    width: 300px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    background-color: #313131;
+    
+}
+.card h1{
+    font-size: 28px;
+    font-weight: 700;
+    padding: 10px;
+}
+.card p{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    text-align: justify;
+}
+@property --angle{
+    syntax:"<angle>";
+    initial-value: 0deg;
+    inherits: false;
+   }
+.card::after, .card::before{
+    content: "";
+    background-image: conic-gradient(from var(--angle), #cd3c3c, #080256, #016a1b, #691818, #cd3c3c);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    padding: 3px;
+    animation: rotation 2s linear infinite;
+    
+}
+.card::before{
+    filter: blur(2.5rem);
+    opacity: 0.5;
+}
+.card2::after, .card2::before{
+    background-image: conic-gradient(from var(--angle), #de147c, #08946c, #053547, #691818, #de147c);
+    animation: rotation 3s ease-in infinite reverse;
+}
+.card3::after, .card3::before{
+    background-image: conic-gradient(from var(--angle), #1f5316, #08946c, #ea6a0e, #c3ba1a, #1f5316);
+    animation: rotation 2s linear infinite ;
+}
+
+@keyframes rotation {
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+@media (min-width:320px) and (max-width:575px) {
+    body{
+        flex-direction: column;
+        width: auto;
+        height: auto;
+    
+    }
+    .card{
+        width: auto;
+        height: auto;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        background-color: #313131;
+        
+    }
+    .card h1{
+        font-size: 20px;
+        font-weight: 600;
+        /* padding: 10px; */
+    }
+    .card p{
+        font-size: 14px;
+        font-weight: 500;
+        /* padding: 10px; */
+        text-align: justify;
+    }
+}
+@media (min-width:576px) and (max-width:787px) {
+   
+    .card{
+        width: auto;
+        height: auto;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        background-color: #313131;
+        
+    }
+    .card h1{
+        font-size: 20px;
+        font-weight: 600;
+        /* padding: 10px; */
+    }
+    .card p{
+        font-size: 14px;
+        font-weight: 500;
+        /* padding: 10px; */
+        text-align: justify;
+    }
+}
